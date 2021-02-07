@@ -1,4 +1,20 @@
+import { useEffect, useState } from "react";
+import { getAllNames, postName } from "../data/services";
+
 export default function Homepage() {
+  const [allNames, setAllNames] = useState([]);
+
+  function fetchNames() {
+    getAllNames().then((res) => {
+      setAllNames(res.data);
+    });
+  }
+
+  useEffect(() => {
+    console.log("toto");
+    fetchNames();
+  }, []);
+
   return (
     <div>
       <header>
@@ -13,19 +29,9 @@ export default function Homepage() {
       </header>
       <main>
         <div>
-          <p>Patrick</p>
-          <p>Patrick</p>
-          <p>Patrick</p>
-          <p>Patrick</p>
-          <p>Patrick</p>
-          <p>Patrick</p>
-          <p>Patrick</p>
-          <p>Patrick</p>
-          <p>Patrick</p>
-          <p>Patrick</p>
-          <p>Patrick</p>
-          <p>Patrick</p>
-          <p>Patrick</p>
+          {allNames.map((argonaute) => (
+            <p>{argonaute.name}</p>
+          ))}
         </div>
       </main>
     </div>
