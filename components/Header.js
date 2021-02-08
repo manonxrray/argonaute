@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { postName } from "../data/services";
 import styled from "@emotion/styled";
 
 const StyledHeader = styled.header`
@@ -6,7 +8,23 @@ const StyledHeader = styled.header`
   }
 `;
 
-export default function Header({ handleSubmit, handleNewName, name }) {
+export default function Header() {
+  const [name, setName] = useState("");
+
+  function handleNewName(event) {
+    console.log("Name registered :", event.target.value);
+    setName(event.target.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log(name);
+    postName(name).then((res) => {
+      console.log(res.data);
+      setName("");
+    });
+  }
+
   return (
     <StyledHeader>
       <h1>Les Argonautes</h1>

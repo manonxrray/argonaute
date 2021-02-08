@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { postName } from "../data/services";
 import styled from "@emotion/styled";
 import { LIGHTBEIGE } from "../styles/consts";
 
@@ -14,24 +12,9 @@ const StyledHome = styled.div`
 `;
 
 export default function Homepage() {
-  const [name, setName] = useState("");
-
-  function handleNewName(event) {
-    console.log("Name registered :", event.target.value);
-    setName(event.target.value);
-  }
-
-  function handleSubmit() {
-    postName(name);
-  }
-
   return (
     <StyledHome>
-      <Header
-        handleNewName={handleNewName}
-        handleSubmit={handleSubmit}
-        name={name}
-      />
+      <Header />
 
       <Body />
     </StyledHome>

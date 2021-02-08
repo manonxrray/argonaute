@@ -9,6 +9,4 @@ const base = axios.create({
 export const getAllNames = () => base.get("/");
 
 export const postName = (name) =>
-  base.post("/", {
-    name,
-  });
+  base.post("/", { name: name }).then(console.log("C POSTÉ"));

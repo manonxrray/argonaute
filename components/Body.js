@@ -21,7 +21,7 @@ export default function Body() {
   useEffect(() => {
     console.log("Names rendered");
     fetchNames();
-  }, []);
+  }, [allNames]);
 
   return (
     <StyledBody>
