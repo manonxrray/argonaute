@@ -1,39 +1,39 @@
-import { useEffect, useState } from "react";
-import { getAllNames, postName } from "../data/services";
+import { useState } from "react";
+import { postName } from "../data/services";
+import styled from "@emotion/styled";
+import { LIGHTBEIGE } from "../styles/consts";
+
+import Header from "./Header";
+import Body from "./Body";
+
+const StyledHome = styled.div`
+  text-align: center;
+  background: ${LIGHTBEIGE};
+  height: 100vh;
+  margin-top: -1.5rem;
+`;
 
 export default function Homepage() {
-  const [allNames, setAllNames] = useState([]);
+  const [name, setName] = useState("");
 
-  function fetchNames() {
-    getAllNames().then((res) => {
-      setAllNames(res.data);
-    });
+  function handleNewName(event) {
+    console.log("Name registered :", event.target.value);
+    setName(event.target.value);
   }
 
-  useEffect(() => {
-    console.log("toto");
-    fetchNames();
-  }, []);
+  function handleSubmit() {
+    postName(name);
+  }
 
   return (
-    <div>
-      <header>
-        <h1>La grande liste des argonautes !</h1>
-        <div>
-          <form>
-            <label>Ajouter un argonaute</label>
-            <input type="text" placeholder="Roger..." />
-            <button type="submit">OK</button>
-          </form>
-        </div>
-      </header>
-      <main>
-        <div>
-          {allNames.map((argonaute) => (
-            <p>{argonaute.name}</p>
-          ))}
-        </div>
-      </main>
-    </div>
+    <StyledHome>
+      <Header
+        handleNewName={handleNewName}
+        handleSubmit={handleSubmit}
+        name={name}
+      />
+
+      <Body />
+    </StyledHome>
   );
 }
