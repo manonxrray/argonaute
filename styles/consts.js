@@ -1,5 +1,3 @@
-export const LIGHTBEIGE = "#F2D091";
-export const LIGHTORANGE = "#F2B680";
-export const ORANGE = "#BF5841";
-export const BROWN = "#8C4842";
-export const BLUE = "#4E74A6";
+export const BLUE = "#3dacdf";
+export const LIGHTBLUE = "#55b5e3";
+export const PALEBLUE = "#8ad0e9";

@@ -6,7 +6,6 @@ import Body from "./Body";
 
 const StyledHome = styled.div`
   text-align: center;
-  background: ${LIGHTBEIGE};
   height: 100vh;
   margin-top: -1.5rem;
 `;
