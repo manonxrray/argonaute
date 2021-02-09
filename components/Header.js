@@ -1,9 +1,18 @@
 import { useState } from "react";
 import { postName } from "../data/services";
 import { BLUE, LIGHTBLUE } from "../styles/consts";
+import Link from "next/link";
 import styled from "@emotion/styled";
 
 const StyledHeader = styled.header`
+  a {
+    position: absolute;
+    right: 2rem;
+    top: 1rem;
+    color: ${LIGHTBLUE};
+    font-size: 0.8rem;
+    text-decoration: underline 1px solid ${LIGHTBLUE};
+  }
   h1 {
     padding-top: 2rem;
     color: ${BLUE};
@@ -49,6 +58,11 @@ export default function Header() {
   return (
     <StyledHeader>
       <h1>Les Argonautes</h1>
+
+      <Link href="https://github.com/manonxrray/argonaute">
+        <a>Lien vers le repo github</a>
+      </Link>
+
       <div>
         <h3>Ajouter un(e) argonaute</h3>
         <form onSubmit={handleSubmit}>
